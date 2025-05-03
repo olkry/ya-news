@@ -1,11 +1,18 @@
 from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import get_object_or_404
+from django.contrib.auth import logout
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse
 from django.views import generic
 
 from .forms import CommentForm
 from .models import Comment, News
+
+
+def logout_view(request):
+    if request.method == 'GET':
+        logout(request)
+    return redirect('news:home')
 
 
 class NewsList(generic.ListView):
