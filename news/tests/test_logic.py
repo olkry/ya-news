@@ -118,7 +118,6 @@ class TestCommentEditDelete(TestCase):
         self.assertRedirects(response, self.url_to_comments)
         # Заодно проверим статус-коды ответов.
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
-        self.assertRedirects(response, self.url_to_comments)
         # Считаем количество комментариев в системе.
         comments_count = Comment.objects.count()
         # Ожидаем ноль комментариев в системе.

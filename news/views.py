@@ -9,10 +9,10 @@ from .forms import CommentForm
 from .models import Comment, News
 
 
-def logout_view(request):
-    if request.method == 'GET':
-        logout(request)
-    return redirect('news:home')
+# def logout_view(request):
+#     if request.method == 'GET':
+#         logout(request)
+#     return redirect('news:home')
 
 
 class NewsList(generic.ListView):
